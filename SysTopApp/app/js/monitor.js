@@ -1,11 +1,16 @@
+const { ipcRenderer } = require('electron');
 const path = require('path');
 const osu = require('node-os-utils');
 const cpu = osu.cpu;
 const mem = osu.mem;
 const os = osu.os;
 
-let overload = 80;
-let alertFrequency = 5;
+let overload;
+let alertFrequency;
+ipcRenderer.on('settings:get', (e, data) => {
+  overload = +data.cpuOverload;
+  alertFrequency = +data.alertFrequency;
+});
 setInterval(() => {
   cpu.usage().then((info) => {
     document.getElementById('cpu-usage').innerText = info + '%';
