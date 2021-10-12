@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^9.0.0",
+    "electron": "^11.5.0",
     "electron-log": "^4.2.0",
     "imagemin": "^7.0.1",
     "imagemin-mozjpeg": "^8.0.0",
